@@ -16,15 +16,16 @@ public:
     ~Demo();
     void hideInputs();
 
+    /** Включить анимацию демки при переключении на демо из главного меню */
+    void activateAnimOnShow();
+
 signals:
     void return_to_menu();
 
 private slots:
     void on_tabWidget_currentChanged(int index);        // переключились на другую визуализацию
-    void on_pushButton_changePolarity_clicked();        // изменили полярность подключения
+    //void on_pushButton_changePolarity_clicked();        // изменили полярность подключения
     void on_pushButton_toMenu_clicked();                // возврат в главное меню
-    void on_input1_textEdited(const QString &arg1);     // в поле для ввода 1 что-то ввели
-    void on_input2_textEdited(const QString &arg1);     // в поле для ввода 2 что-то ввели
 
 private:
     Ui::Demo *ui;

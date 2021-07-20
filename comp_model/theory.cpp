@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include "ui_theory.h"
 
-theory::theory(QWidget *parent) :
+Theory::Theory(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::theory)
 {
@@ -25,7 +25,7 @@ theory::theory(QWidget *parent) :
 
 }
 
-void theory::on_textBrowser_anchorClicked(const QUrl &arg1)
+void Theory::on_textBrowser_anchorClicked(const QUrl &arg1)
 {
     if (arg1.fileName() == "dictionary")
     {
@@ -33,12 +33,12 @@ void theory::on_textBrowser_anchorClicked(const QUrl &arg1)
     }
 }
 
-theory::~theory()
+Theory::~Theory()
 {
     delete ui;
 }
 
-void theory::on_pushButton_clicked()
+void Theory::on_pushButton_clicked()
 {
     emit return_to_menu();
 }

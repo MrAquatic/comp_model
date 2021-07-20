@@ -177,7 +177,7 @@ color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </widget>
-      <widget class="Teoria" name="teoria"/>
+      <widget class="Theory" name="teoria"/>
       <widget class="Demo" name="demo"/>
       <widget class="Test" name="test"/>
      </widget>
@@ -187,9 +187,9 @@ color: rgb(255, 255, 255);</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Teoria</class>
+   <class>Theory</class>
    <extends>QWidget</extends>
-   <header location="global">teoria.h</header>
+   <header location="global">theory.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

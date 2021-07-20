@@ -51,6 +51,7 @@ void PictureBox::resizeEvent(QResizeEvent *event)
 
 void PictureBox::pauseAll()
 {
+    qDebug() << "anim pause";
     n_semi->pause();
     n_semi->group->hide();
 }
@@ -69,12 +70,14 @@ void PictureBox::show_p_semi()
 */
 void PictureBox::show_n_semi()
 {
+    // Если в первый раз запускаем эту функцию,
+    // то инициализируем анимацию через n_semi->draw
     if (n_semi->group->childItems().empty())
     {
         qDebug() << "n draw";
         n_semi->draw();
     }
-    pauseAll();
+    // снимаем с паузы
     n_semi->group->show();
     n_semi->unpause();
 }
@@ -149,9 +152,11 @@ QGraphicsTextItem* PictureBox::drawSigns(const string &c, const QPointF &coords,
     group->addToGroup(sign);
     return sign;
 }
+
 /*
 void PictureBox::changePolarity()
 {
     qDebug() << scene->sceneRect();
     perehod->changePolarity();
-}*/
+}
+*/

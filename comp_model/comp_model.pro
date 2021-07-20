@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     demo.cpp \
+    electron.cpp \
     main.cpp \
     mainwindow.cpp \
     n_semiconductor.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     demo.h \
+    electron.h \
     loader.h \
     mainwindow.h \
     n_semiconductor.h \

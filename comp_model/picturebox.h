@@ -20,10 +20,12 @@ private:
     N_semiconductor *n_semi = nullptr;
     // позволяем увеличивать размеры окна с масштабированием содержимого
     void resizeEvent(QResizeEvent *event);
+
+public:
+    // включить анимацию n-semi
+    void show_n_semi();
     // остановить все на паузу и скрыть все визуализации со сцены
     void pauseAll();
-public:
-    void show_n_semi();
     // рисуем знак + или -, или любой другой символ 'c' по коордианте coords и помещаем элемент в указанную группу group
     static QGraphicsTextItem *drawSigns(const std::string &c, const QPointF &coords, QGraphicsItemGroup *group, int FontSize = 28);
     // переадресовываем для p-n перехода, что необходимо изменить полярность

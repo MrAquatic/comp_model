@@ -11,13 +11,13 @@ namespace Ui {
 class theory;
 }
 
-class theory : public QWidget
+class Theory : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit theory(QWidget *parent = nullptr);
-    ~theory();
+    explicit Theory(QWidget *parent = nullptr);
+    ~Theory();
 
 signals:
     void return_to_menu();

@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // -- для возврата в главное меню из подсистем теории, демонстрации и теста -- //
-    connect(ui->teoria, &theory::return_to_menu, this, &MainWindow::return_to_menu);
+    connect(ui->teoria, &Theory::return_to_menu, this, &MainWindow::return_to_menu);
     connect(ui->test, &Test::return_to_menu, this, &MainWindow::return_to_menu);
     connect(ui->demo, &Demo::return_to_menu, this, &MainWindow::return_to_menu);
 }
@@ -44,4 +44,6 @@ void MainWindow::return_to_menu()
 void MainWindow::on_pushButton_demo_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->demo);
+    // включаем отрисовку n-semi
+    ui->demo->activateAnimOnShow(); // включаю анимацию n-полупроводника
 }
