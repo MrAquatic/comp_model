@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="electron.svg">images/electron.svg</file>
+    </qresource>
+</RCC>

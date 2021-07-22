@@ -16,7 +16,7 @@ public:
 private:
     QGraphicsScene *scene;          // Объявляем сцену для отрисовки
 
-    // для визуализации n-полупроводника
+    // для визуализации движения частиц между двумя пластинами конденсатора
     ParticleAnimation *n_semi = nullptr;
     // позволяем увеличивать размеры окна с масштабированием содержимого
     void resizeEvent(QResizeEvent *event);

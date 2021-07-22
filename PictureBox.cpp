@@ -143,6 +143,8 @@ void PictureBox::reset_Animations_for_p_semi()
     p_semi->resetAnimations();
 }
 */
+
+/// переделать под svg
 QGraphicsTextItem* PictureBox::drawSigns(const string &c, const QPointF &coords, QGraphicsItemGroup* group, int FontSize)
 {
     QGraphicsTextItem *sign = new QGraphicsTextItem(c.c_str());

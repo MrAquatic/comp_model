@@ -5,13 +5,13 @@
 #include <vector>
 #include "Particle.h"
 
-// визуализируем n-полупроводник
+// опыт - положительно заряж частица между двумя пластинами конденсатора
 class ParticleAnimation : public QObject
 {
 public:
     ParticleAnimation();
     ~ParticleAnimation();
-    // рисуем процесс движения электронов в n-полупроводнике
+    // рисуем процесс движения электронов
     void draw();
     // рисуем схему источника питания
     void drawPowerSource();
@@ -30,6 +30,8 @@ public:
     void pause();
     void unpause();
 // поля
+    // кол-во частиц
+    const int particleCount = 40;
     // массивы частиц и анимаций к ним
     std::vector<Particle*> particleArr;
     std::vector<QPropertyAnimation*> animationArr;
@@ -44,7 +46,8 @@ public:
     // таймер, выпускающий частицы для эффекта потока частиц
     QTimer *animTimer = nullptr;
     // длительность анимации
-    int animDuration = 2500;
+    const int animDuration = 2500;
+    const int animGenerationInterval = animDuration/particleCount;
     // индекс текущей выпускаемой частицы
     int i = 0;
      // активна ли сейчас анимация?

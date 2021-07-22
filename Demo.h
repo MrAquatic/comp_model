@@ -24,13 +24,11 @@ signals:
 
 private slots:
     void on_tabWidget_currentChanged(int index);        // переключились на другую визуализацию
-    //void on_pushButton_changePolarity_clicked();        // изменили полярность подключения
     void on_pushButton_toMenu_clicked();                // возврат в главное меню
 
 private:
     Ui::Demo *ui;
     PictureBox *graphic;                                // наш класс, в котором мы все рисуем
 };
-
 
 #endif // Demo_H

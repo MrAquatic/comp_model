@@ -14,6 +14,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void setFixedSizeAndDisableFullscreen();
+
+    void unSetFixedSizeAndEnableFullscren();
+
 private slots:
 
     void on_pushButton_teoria_clicked();

@@ -1,6 +1,7 @@
 #include "ParticleAnimation.h"
 #include <QSequentialAnimationGroup>
 #include <QPropertyAnimation>
+
 #include <QPen>
 #include <vector>
 #include <QDebug>
@@ -9,9 +10,10 @@
 #include <ctime>
 #include <QTimer>
 #include "PictureBox.h"
+
 using namespace std;
 
-ParticleAnimation::ParticleAnimation() : particleArr(40), animationArr(40)
+ParticleAnimation::ParticleAnimation() : particleArr(particleCount), animationArr(particleCount)
 {
     group = new QGraphicsItemGroup();
     animTimer = new QTimer();
@@ -61,6 +63,7 @@ void ParticleAnimation::drawPowerSource()
     path->lineTo(360,halfH-140);
     path->lineTo(360,halfH-170);
     path->lineTo(360,halfH-110);
+
     QGraphicsPathItem* mainLine = new QGraphicsPathItem(*path);
     mainLine->setPath(*path);
     mainLine->setPen(pen);
@@ -116,7 +119,7 @@ void ParticleAnimation::drawIons()
 
 void ParticleAnimation::drawElectrons()
 {
-    for (int i = 0; i < 40; ++i)
+    for (int i = 0; i < particleCount; ++i)
     {
         particleArr[i] = new Particle();
         particleArr[i]->setZValue(2);
@@ -145,7 +148,7 @@ void ParticleAnimation::prepareAnim()
     mt19937 mt(seed);
     uniform_int_distribution<int> rand_y(4,h-particleSize-halfParticleSize); // в пределах проводника
     double prev_y = 0;
-    for (int i = 0; i < 40; ++i)
+    for (int i = 0; i < particleCount; ++i)
     {
         double y = 0;
         do {
@@ -159,7 +162,7 @@ void ParticleAnimation::prepareAnim()
         animationArr[i]->setLoopCount(-1);
     }
     connect(animTimer, &QTimer::timeout, this, &ParticleAnimation::resumeAnim);
-    animTimer->start(62);
+    animTimer->start(animGenerationInterval);
 }
 
 void ParticleAnimation::pause()
@@ -197,7 +200,7 @@ void ParticleAnimation::unpause()
     {
         if (animationArr[0]->state() == QAbstractAnimation::State::Stopped) // если в прошлый раз остановили
         {
-            animTimer->start(62);
+            animTimer->start(animGenerationInterval);
         }
         else    // если поставили на паузу
         {
@@ -214,5 +217,5 @@ void ParticleAnimation::resumeAnim()
 {
     animationArr[i]->start();
     ++i;
-    if (i == 40) animTimer->stop();
+    if (i == particleCount) animTimer->stop();
 }

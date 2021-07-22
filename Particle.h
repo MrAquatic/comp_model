@@ -2,6 +2,7 @@
 #define ELECTRON_H
 
 #include <QGraphicsObject>
+#include <QSvgRenderer>
 
 // класс, изображающую частицу, у которой есть свойство geometry
 // свойство необходимо для анимаций
@@ -45,6 +46,7 @@ private:
     QRectF rect;        // координаты
     ParticleType type;  // тип частицы
     QColor color;       // цвет частицы
+    QSvgRenderer svgElectron;
 };
 
 #endif // ELECTRON_H

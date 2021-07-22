@@ -1,7 +1,9 @@
 #include "Particle.h"
 #include <QPainter>
+#include <QDebug>
+#include <QSvgRenderer>
 
-Particle::Particle() : QGraphicsObject()
+Particle::Particle() : QGraphicsObject(), svgElectron(QString(":/electron.svg"))
 {
     // по умолчанию - электрон
     type = ParticleType::electron;
@@ -16,19 +18,9 @@ QRectF Particle::boundingRect() const
 void Particle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     // рисуем частицу
-    painter->setPen(Qt::black);
-    painter->setBrush(color);
-    painter->drawEllipse(rect);
-    QPointF a = {rect.x() + rect.width() / 4, rect.y() + rect.height()/2};
-    QPointF b = {rect.x()+ rect.width() - rect.width() / 4, rect.y() + rect.height()/2};
+    painter->setRenderHint(QPainter::Antialiasing);
+    svgElectron.render(painter, rect);
 
-    painter->drawLine(a,b);
-    if (type == ParticleType::hole)
-    {
-        a = {rect.x() + rect.width() / 2, rect.y() + rect.height() / 4};
-        b = {rect.x() + rect.width() / 2, rect.y() + rect.height() - rect.height() / 4 };
-        painter->drawLine(a,b);
-    }
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }
