@@ -1,12 +1,12 @@
 #include <QFile>
-#include "theory.h"
-#include "loader.h"
+#include "Theory.h"
+#include "TextLoader.h"
 #include <QMessageBox>
-#include "ui_theory.h"
+#include "ui_Theory.h"
 
 Theory::Theory(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::theory)
+    ui(new Ui::Theory)
 {
     ui->setupUi(this);
     // -- если файлов нет, то выдаем месседжбокс, иначе читаем файл и грузим в textBrowser -- //

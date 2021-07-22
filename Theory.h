@@ -8,7 +8,7 @@
 #include <QTextStream>
 
 namespace Ui {
-class theory;
+class Theory;
 }
 
 class Theory : public QWidget
@@ -25,7 +25,7 @@ private slots:
     void on_textBrowser_anchorClicked(const QUrl &arg1); // -- перехват и обработка нажатия на гиперссылку в теории -- //
     void on_pushButton_clicked();
 private:
-    Ui::theory *ui;
+    Ui::Theory *ui;
 
 };
 

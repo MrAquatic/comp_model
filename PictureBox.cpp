@@ -1,4 +1,4 @@
-#include "picturebox.h"
+#include "PictureBox.h"
 #include "QDebug"
 #include <QResizeEvent>
 #include <vector>
@@ -6,12 +6,12 @@
 #include <cmath>
 #include <QPropertyAnimation>
 #include <QSequentialAnimationGroup>
-#include "particle.h"
-#include "demo.h"
+#include "Particle.h"
+#include "Demo.h"
 
 using namespace std;
 
-PictureBox::PictureBox(QWidget *parent) : QGraphicsView(parent), n_semi(new N_semiconductor())
+PictureBox::PictureBox(QWidget *parent) : QGraphicsView(parent), n_semi(new ParticleAnimation())
 
 {
     // настроим отображение виджета и содержимого

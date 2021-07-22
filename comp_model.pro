@@ -9,32 +9,30 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    demo.cpp \
-    electron.cpp \
+    Demo.cpp \
     main.cpp \
-    mainwindow.cpp \
-    n_semiconductor.cpp \
-    particle.cpp \
-    picturebox.cpp \
-    test.cpp \
-    theory.cpp
+    MainWindow.cpp \
+    ParticleAnimation.cpp \
+    Particle.cpp \
+    PictureBox.cpp \
+    Test.cpp \
+    Theory.cpp
 
 HEADERS += \
-    demo.h \
-    electron.h \
-    loader.h \
-    mainwindow.h \
-    n_semiconductor.h \
-    particle.h \
-    picturebox.h \
-    test.h \
-    theory.h
+    Demo.h \
+    TextLoader.h \
+    MainWindow.h \
+    ParticleAnimation.h \
+    Particle.h \
+    PictureBox.h \
+    Test.h \
+    Theory.h
 
 FORMS += \
-    demo.ui \
-    mainwindow.ui \
-    test.ui \
-    theory.ui
+    Demo.ui \
+    MainWindow.ui \
+    Test.ui \
+    Theory.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

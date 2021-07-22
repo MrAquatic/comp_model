@@ -1,5 +1,5 @@
-#include "demo.h"
-#include "ui_demo.h"
+#include "Demo.h"
+#include "ui_Demo.h"
 #include <QDebug>
 #include <QTimer>
 #include <QFile>

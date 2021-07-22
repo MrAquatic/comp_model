@@ -4,7 +4,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
-#include "n_semiconductor.h"
+#include "ParticleAnimation.h"
 
 class PictureBox : public QGraphicsView
 {
@@ -17,7 +17,7 @@ private:
     QGraphicsScene *scene;          // Объявляем сцену для отрисовки
 
     // для визуализации n-полупроводника
-    N_semiconductor *n_semi = nullptr;
+    ParticleAnimation *n_semi = nullptr;
     // позволяем увеличивать размеры окна с масштабированием содержимого
     void resizeEvent(QResizeEvent *event);
 

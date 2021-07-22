@@ -2,9 +2,9 @@
 #include <ctime>
 #include <QMessageBox>
 #include <random>
-#include "test.h"
-#include "ui_test.h"
-#include "loader.h"
+#include "Test.h"
+#include "ui_Test.h"
+#include "TextLoader.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ Test::Test(QWidget *parent) :
     ui(new Ui::Test)
 {
     ui->setupUi(this);
-    all_text = loader::getText_from_file("test.txt");
+    all_text = TextLoader::getText_from_file("test.txt");
     if (all_text.length() == 0) // -- лоадер вернул пустую строку, значит не смог открыть файл -- //
     {
         QMessageBox::warning(this,"Ошибка","Не удалось открыть файл test.txt");
@@ -225,7 +225,7 @@ void Test::add_stat (double procent)
 
 void Test::read_stat ()
 {
-    QString stats_text = QString::fromStdString(loader::getText_from_file("stats.txt"));
+    QString stats_text = QString::fromStdString(TextLoader::getText_from_file("stats.txt"));
     ui->textBrowser_stats->setText(stats_text);
 }
 

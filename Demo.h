@@ -2,7 +2,7 @@
 #define DEMO_H
 
 #include <QMainWindow>
-#include "picturebox.h" // фрейм, в котором все рисуем
+#include "PictureBox.h" // фрейм, в котором все рисуем
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Demo; }

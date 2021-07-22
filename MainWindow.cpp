@@ -1,7 +1,7 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "theory.h"
-#include "test.h"
+#include "MainWindow.h"
+#include "ui_MainWindow.h"
+#include "Theory.h"
+#include "Test.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)

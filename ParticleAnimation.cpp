@@ -1,28 +1,28 @@
-#include "n_semiconductor.h"
+#include "ParticleAnimation.h"
 #include <QSequentialAnimationGroup>
 #include <QPropertyAnimation>
 #include <QPen>
 #include <vector>
 #include <QDebug>
-#include "demo.h"
+#include "Demo.h"
 #include <random>
 #include <ctime>
 #include <QTimer>
-#include "picturebox.h"
+#include "PictureBox.h"
 using namespace std;
 
-N_semiconductor::N_semiconductor() : particleArr(40), animationArr(40)
+ParticleAnimation::ParticleAnimation() : particleArr(40), animationArr(40)
 {
     group = new QGraphicsItemGroup();
     animTimer = new QTimer();
 }
 
-N_semiconductor::~N_semiconductor()
+ParticleAnimation::~ParticleAnimation()
 {
     delete group;
 }
 
-void N_semiconductor::draw()
+void ParticleAnimation::draw()
 {
     QPen penBlack(Qt::black);
     penBlack.setWidth(3);
@@ -45,7 +45,7 @@ void N_semiconductor::draw()
     active = true;
 }
 
-void N_semiconductor::drawPowerSource()
+void ParticleAnimation::drawPowerSource()
 {
     // рисуем схему источника тока
     QPainterPath* path = new QPainterPath();
@@ -79,7 +79,7 @@ void N_semiconductor::drawPowerSource()
     PictureBox::drawSigns("-",{300,halfH-185},group);
 }
 
-void N_semiconductor::drawIon(const QPointF &coords)
+void ParticleAnimation::drawIon(const QPointF &coords)
 {
     QPolygonF poly;
     poly.append({0,8});
@@ -103,7 +103,7 @@ void N_semiconductor::drawIon(const QPointF &coords)
     polygon->setPos(coords);
 }
 
-void N_semiconductor::drawIons()
+void ParticleAnimation::drawIons()
 {
     time_t seed = time(nullptr);
     mt19937 mt(seed);
@@ -114,7 +114,7 @@ void N_semiconductor::drawIons()
     }
 }
 
-void N_semiconductor::drawElectrons()
+void ParticleAnimation::drawElectrons()
 {
     for (int i = 0; i < 40; ++i)
     {
@@ -125,7 +125,7 @@ void N_semiconductor::drawElectrons()
     }
 }
 
-void N_semiconductor::drawBounds()
+void ParticleAnimation::drawBounds()
 {
     QGraphicsRectItem *outRight = new QGraphicsRectItem(w+2,0,30,h);
     QGraphicsRectItem *outLeft = new QGraphicsRectItem(-4-30,0,particleSize*2,h);
@@ -139,7 +139,7 @@ void N_semiconductor::drawBounds()
     group->addToGroup(outLeft);
 }
 
-void N_semiconductor::prepareAnim()
+void ParticleAnimation::prepareAnim()
 {
     time_t seed = time(nullptr);
     mt19937 mt(seed);
@@ -158,11 +158,11 @@ void N_semiconductor::prepareAnim()
         animationArr[i]->setEndValue(QRectF(w+particleSize,y,particleSize,particleSize));
         animationArr[i]->setLoopCount(-1);
     }
-    connect(animTimer, &QTimer::timeout, this, &N_semiconductor::resumeAnim);
+    connect(animTimer, &QTimer::timeout, this, &ParticleAnimation::resumeAnim);
     animTimer->start(62);
 }
 
-void N_semiconductor::pause()
+void ParticleAnimation::pause()
 {
     if (active && readyToShow)
     {
@@ -191,7 +191,7 @@ void N_semiconductor::pause()
     }
 }
 
-void N_semiconductor::unpause()
+void ParticleAnimation::unpause()
 {
     if (!active && readyToShow)
     {
@@ -210,7 +210,7 @@ void N_semiconductor::unpause()
     }
 }
 
-void N_semiconductor::resumeAnim()
+void ParticleAnimation::resumeAnim()
 {
     animationArr[i]->start();
     ++i;

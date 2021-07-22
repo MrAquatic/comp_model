@@ -3,14 +3,14 @@
 
 #include <QPropertyAnimation>
 #include <vector>
-#include "particle.h"
+#include "Particle.h"
 
 // визуализируем n-полупроводник
-class N_semiconductor : public QObject
+class ParticleAnimation : public QObject
 {
 public:
-    N_semiconductor();
-    ~N_semiconductor();
+    ParticleAnimation();
+    ~ParticleAnimation();
     // рисуем процесс движения электронов в n-полупроводнике
     void draw();
     // рисуем схему источника питания

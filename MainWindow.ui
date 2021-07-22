@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Учебно-демонстрационная программа «Поиск подстроки в строке: алгоритм Рабина-Карпа»</string>
+   <string>111111111</string>
   </property>
   <widget class="QWidget" name="widget">
    <layout class="QGridLayout" name="gridLayout">
@@ -53,7 +53,7 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="mainmenu">
+      <widget class="Theory" name="mainmenu">
        <widget class="QLabel" name="Author">
         <property name="geometry">
          <rect>
@@ -189,19 +189,19 @@ color: rgb(255, 255, 255);</string>
   <customwidget>
    <class>Theory</class>
    <extends>QWidget</extends>
-   <header location="global">theory.h</header>
+   <header location="global">Theory.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>Test</class>
    <extends>QWidget</extends>
-   <header location="global">test.h</header>
+   <header location="global">Test.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>Demo</class>
    <extends>QWidget</extends>
-   <header location="global">demo.h</header>
+   <header location="global">Demo.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

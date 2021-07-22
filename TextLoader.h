@@ -4,10 +4,10 @@
 #include <sstream>
 #include <string>
 
-class loader
+class TextLoader
 {
 public:
-    loader(){}
+    TextLoader(){}
 
     static std::string getText_from_file(const std::string &filename)
     {
