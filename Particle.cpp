@@ -3,11 +3,10 @@
 #include <QDebug>
 #include <QSvgRenderer>
 
-Particle::Particle() : QGraphicsObject(), svgElectron(QString(":/electron.svg"))
+Particle::Particle() : QGraphicsObject(), svgElectron(std::make_unique<QSvgRenderer>(QString(":/electron.svg")))
 {
     // по умолчанию - электрон
     type = ParticleType::electron;
-    color = Qt::cyan;
 }
 
 QRectF Particle::boundingRect() const
@@ -19,7 +18,7 @@ void Particle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 {
     // рисуем частицу
     painter->setRenderHint(QPainter::Antialiasing);
-    svgElectron.render(painter, rect);
+    svgElectron->render(painter, rect);
 
     Q_UNUSED(option);
     Q_UNUSED(widget);

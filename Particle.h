@@ -26,11 +26,11 @@ public:
     {
         if (_type == ParticleType::electron)
         {
-            color = Qt::cyan;
+
         }
         else if (_type == ParticleType::hole)
         {
-            color = Qt::green;
+
         }
     }
 
@@ -45,8 +45,7 @@ public:
 private:
     QRectF rect;        // координаты
     ParticleType type;  // тип частицы
-    QColor color;       // цвет частицы
-    QSvgRenderer svgElectron;
+    std::unique_ptr<QSvgRenderer> svgElectron;
 };
 
 #endif // ELECTRON_H

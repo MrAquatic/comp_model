@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file alias="electron.svg">images/electron.svg</file>
+        <file alias="proton.svg">images/proton.svg</file>
+        <file alias="condensator_plus.svg">images/condensator_plus.svg</file>
+        <file alias="condensator_minus.svg">images/condensator_minus.svg</file>
     </qresource>
 </RCC>

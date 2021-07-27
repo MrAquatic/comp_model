@@ -1,14 +1,15 @@
 #include "ParticleAnimation.h"
-#include <QSequentialAnimationGroup>
-#include <QPropertyAnimation>
 
-#include <QPen>
-#include <vector>
-#include <QDebug>
-#include "Demo.h"
-#include <random>
 #include <ctime>
+
+#include <random>
+#include <vector>
+
+#include <QPropertyAnimation>
+#include <QDebug>
 #include <QTimer>
+
+#include "Demo.h"
 #include "PictureBox.h"
 
 using namespace std;
@@ -84,26 +85,8 @@ void ParticleAnimation::drawPowerSource()
 
 void ParticleAnimation::drawIon(const QPointF &coords)
 {
-    QPolygonF poly;
-    poly.append({0,8});
-    poly.append({4,0});
-    poly.append({14,0});
-    poly.append({18,8});
-    poly.append({14,16});
-    poly.append({4,16});
-    QGraphicsPolygonItem *polygon = new QGraphicsPolygonItem(poly);
-    polygon->setPen(QPen(Qt::black));
-    polygon->setBrush(Qt::green);
-    group->addToGroup(polygon);
-    QPainterPath* path = new QPainterPath();
-    QGraphicsPathItem *plus = new QGraphicsPathItem(polygon);
-    plus->setPen(QPen(Qt::black));
-    path->moveTo({6,8});
-    path->lineTo({12,8});
-    path->moveTo({9,5});
-    path->lineTo({9,11});
-    plus->setPath(*path);
-    polygon->setPos(coords);
+    QGraphicsSvgItem *svgProton = new QGraphicsSvgItem(QString(":/proton.svg"), group);
+    svgProton->setPos(coords);
 }
 
 void ParticleAnimation::drawIons()

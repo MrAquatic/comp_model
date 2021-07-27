@@ -3,6 +3,7 @@
 
 #include <QPropertyAnimation>
 #include <vector>
+#include <QGraphicsSvgItem>
 #include "Particle.h"
 
 // опыт - положительно заряж частица между двумя пластинами конденсатора
